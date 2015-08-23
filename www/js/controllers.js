@@ -13,7 +13,7 @@ angular.module('starter.controllers', ['ngCookies'])
 
   console.log(Cookies.get('csrftoken'));
   $scope.postData = function() {
-    // $http.post('http://10.107.135.214:8000/api/user/login', {'csrfmiddlewaretoken':Cookies.get('csrftoken')} ).
+    // $http.post('http://10.107.168.155:8000/api/user/login', {'csrfmiddlewaretoken':Cookies.get('csrftoken')} ).
     //   success(function(data, status, headers, config) {
     //     console.log('post deliveryDone berhasil');
     //     alert('Success : Delivery has been done');
@@ -24,7 +24,7 @@ angular.module('starter.controllers', ['ngCookies'])
     // });
     var request = $http({
         method: "post",
-        url: "http://10.107.135.214:8000/api/user/login",
+        url: "http://10.107.168.155:8000/api/user/login",
         data: {
             username: 'test',
             password: "test",
@@ -54,7 +54,7 @@ angular.module('starter.controllers', ['ngCookies'])
 })
 
 .controller('cekHargaPasar', function($scope, $http) {
-  $http.get('http://10.107.135.214:8000/api/province').then(function(resp) {
+  $http.get('http://10.107.168.155:8000/api/province').then(function(resp) {
     console.log('Success', resp);
     // For JSON responses, resp.data contains the result
 
@@ -67,7 +67,7 @@ angular.module('starter.controllers', ['ngCookies'])
 })
 
 .controller('cekHargaKomoditas', function($scope, $http) {
-  $http.get('http://10.107.135.214:8000/api/commodities').then(function(resp) {
+  $http.get('http://10.107.168.155:8000/api/commodities').then(function(resp) {
     console.log('Success', resp);
     // For JSON responses, resp.data contains the result
 
@@ -79,8 +79,25 @@ angular.module('starter.controllers', ['ngCookies'])
   })
 })
 
-.controller('BookmarCtrl', function($scope, $http) {
+.controller('cekHargaKomoditasGoods', function($scope, $stateParams, $http) {
+  $http.get('http://10.107.168.155:8000/api/goods/?goods='+$stateParams.goods).then(function(resp) {
+    console.log('Success', resp);
+    $scope.now_id = $stateParams.goods;
+    $scope.goods = resp.data.data;
+  }, function(err) {
+    console.error('ERR', err);
+    // err.status will contain the status code
+  })
+})
 
+.controller('cekHargaKomoditasGoodsChild', function($scope, $stateParams, $http) {
+  $http.get('http://10.107.168.155:8000/api/goods_childs/?goods='+$stateParams.goods).then(function(resp) {
+    console.log('Success', resp);
+    $scope.childs = resp.data.data;
+  }, function(err) {
+    console.error('ERR', err);
+    // err.status will contain the status code
+  })
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {

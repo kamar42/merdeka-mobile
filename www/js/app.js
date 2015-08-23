@@ -77,7 +77,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller : 'cekHargaKomoditas'
         }
       }
-    })
+    }).state('tab.cekHarga-komoditas-goods', {
+        url: '/cekHarga/komoditas/:goods',
+        views: {
+          'tab-cekHarga': {
+            templateUrl: 'templates/tab-cekHarga-komoditas-goods.html',
+            controller : 'cekHargaKomoditasGoods'
+          }
+        }
+      }).state('tab.cekHarga-komoditas-goods-child', {
+          url: '/cekHarga/komoditas/:goods/:child',
+          views: {
+            'tab-cekHarga': {
+              templateUrl: 'templates/tab-cekHarga-komoditas-goods-child.html',
+              controller : 'cekHargaKomoditasGoodsChild'
+            }
+          }
+        })
     .state('tab.cekHarga-pasar', {
       url: '/cekHarga/pasar',
       views: {

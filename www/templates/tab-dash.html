@@ -1,10 +1,19 @@
 <ion-view view-title="Dashboard">
   <ion-content class="padding">
     <div class="list">
-
       <label class="item item-input item-stacked-label">
         <span class="input-label">Location</span>
         <input type="text" placeholder="Istana Merdeka">
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Komoditas
+        </div>
+        <select>
+          <option>Gula</option>
+          <option selected>Daging</option>
+          <option>Beras</option>
+        </select>
       </label>
       <label class="item item-input item-stacked-label">
         <span class="input-label">Nama Produk</span>
@@ -13,6 +22,16 @@
       <label class="item item-input item-stacked-label">
         <span class="input-label">Harga</span>
         <input type="text" placeholder="42000">
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Satuan
+        </div>
+        <select>
+          <option>per kg</option>
+          <option selected>10 kg</option>
+          <option>100 kg</option>
+        </select>
       </label>
     </div>
     <button class="button button-block button-positive" ng-click="postData()">

@@ -1,6 +1,6 @@
 <ion-view view-title="Cek Harga komoditas">
   <ion-content class="padding">
-    <ion-item class="item-remove-animate item-icon-right" ng-repeat="commodity in commodities" type="item-text-wrap" href="#/tab/cekHarga/komoditas">
+    <ion-item class="item-remove-animate item-icon-right" ng-repeat="commodity in commodities" type="item-text-wrap" href="#/tab/cekHarga/komoditas/{{ commodity.id }}">
       <h2>{{ commodity.name }}</h2>
       <i class="icon ion-chevron-right icon-accessory"></i>
     </ion-item>
